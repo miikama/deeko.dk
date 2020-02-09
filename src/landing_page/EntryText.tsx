@@ -4,7 +4,6 @@ import './EntryText.css';
 import MapBackground from '../components/background'
 import { RouteComponentProps } from 'react-router-dom'
 import Header from '../components/header'
-import Authentication from '../Authentication'
 
 interface LetterModel {
     letter: string,

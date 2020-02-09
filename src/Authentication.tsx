@@ -3,11 +3,16 @@
 class Authentication {
 
     constructor() {
-        console.log("Craeting auth service")
+        console.log("Craeting auth service")                
     }
 
-    login() {
-        console.log("logging in")
+    authenticate() {
+        console.log("Authenticating")
+    }
+
+    isAuthenticated() {
+        console.log("is authenticated?")
+        return true
     }
 
     logout() {
