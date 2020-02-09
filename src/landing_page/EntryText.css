@@ -1,0 +1,19 @@
+
+.entry-text-main-container {    
+  display: flex;  
+  flex-direction: row;  
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-text-container {   
+  max-height: 100vh;  
+  display: flex;   
+  flex-direction: column;
+  justify-content: center;
+}
+  
+.entry-text-component {     
+  font-weight: bold !important;    
+  transition: font-size 0.05s;  
+}
