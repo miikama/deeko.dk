@@ -4,6 +4,7 @@ import './EntryText.css';
 import MapBackground from '../components/background'
 import { RouteComponentProps } from 'react-router-dom'
 import Header from '../components/header'
+import { AuthServiceType } from '../Authentication';
 
 interface LetterModel {
     letter: string,
@@ -13,7 +14,11 @@ interface EntryState {
     letters: LetterModel[]
 }
 
-class EntryText extends Component<RouteComponentProps> {
+interface EntryPageProps extends RouteComponentProps {
+    auth_service: AuthServiceType
+};
+
+class EntryText extends Component<EntryPageProps> {
 
     initialState ="DEEKOO".split('').map( (letter) => {
         return {letter: letter, active: false };
@@ -85,8 +90,8 @@ class EntryText extends Component<RouteComponentProps> {
         //console.log('exiting ', letter, ' with id: ', id, ' which is active: ', this.state.letters[id].active);
     }
 
-    onLetterClick = (letter: string, id: number) => {                        
-        this.props.history.push("/login")
+    onLetterClick = (letter: string, id: number) => {                                
+        this.props.history.push("/map")
     }
 
     letterComponents = () => this.state.letters.map( (letter, index) => {

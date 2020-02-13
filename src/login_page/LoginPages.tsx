@@ -5,10 +5,16 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import MapBackground from '../components/background';
 import Header from '../components/header';
+import { AuthServiceType } from '../Authentication';
 
 
-const LoginPage: FunctionComponent<RouteComponentProps> = (props) => {
+interface LoginPageProps extends RouteComponentProps {
+    auth_service: AuthServiceType
+};
 
+const LoginPage: FunctionComponent<LoginPageProps> = ({auth_service, ...props}) => {
+
+        
     const styles = {
         fontSize: "2vw"        
     }
@@ -16,7 +22,9 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props) => {
         width: "50vw"
     }
 
-    const onSubmit = () => {        
+    const onSubmit = () => {
+        console.log("auth: ", auth_service);        
+        auth_service.authenticate()
         props.history.push("/map")
     }
 

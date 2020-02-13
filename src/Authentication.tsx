@@ -1,29 +1,29 @@
+export type AuthServiceType = {
+    authenticate: () => void;
+    isAuthenticated: () => boolean;
+}
 
 
 class Authentication {
 
+    authenticated: boolean = false;
+
     constructor() {
-        console.log("Craeting auth service")                
+        console.log("Creating auth service");
+        
     }
 
     authenticate() {
-        console.log("Authenticating")
+        this.authenticated = true;
+        console.log("Authenticating");
     }
 
     isAuthenticated() {
-        console.log("is authenticated?")
-        return true
+        console.log("is authenticated?");
+        return this.authenticated;        
     }
-
-    logout() {
-        console.log("logging out")
-    }
-
-    getCurrentUser() {
-        console.log("getting user")
-    }
-
 
 }
+
 
 export default new Authentication()

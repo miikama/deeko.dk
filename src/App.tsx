@@ -6,19 +6,29 @@ import EntryText from './landing_page/EntryText';
 import LoginPage from './login_page/LoginPages';
 import MapPage from './map_page/map_page';
 import ProtectedRoute from './components/protected_route';
+import AuthService from './Authentication';
 
 class App extends Component {
 
   state = {
     currentUser: undefined
   }
+
+  auth_service = AuthService;
+
   
   render() {
+    console.log("auth: ", this.auth_service);
     return (
       <BrowserRouter>
-          <Route exact path="/" component={EntryText}/>
-          <Route exact path="/login" component={LoginPage} />
-          <ProtectedRoute exact path="/map" component={MapPage} />
+          <Route exact path="/" render={(props) => 
+            <EntryText {...props} auth_service={this.auth_service}/>
+          }
+          />
+          <Route exact path="/login" render={(props) => 
+            <LoginPage {...props} auth_service={this.auth_service}/>          
+          }/>
+          <ProtectedRoute exact path="/map" component={MapPage}/>
       </BrowserRouter>
     )
   }
