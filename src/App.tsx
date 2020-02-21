@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import EntryText from './landing_page/EntryText';
 import LoginPage from './login_page/LoginPages';
-import MapPage from './map_page/map_page';
+import MapPage from './map_page/MapPage';
 import ProtectedRoute from './components/protected_route';
 import AuthService from './Authentication';
 
